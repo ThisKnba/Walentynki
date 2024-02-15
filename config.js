@@ -1,2 +1,2 @@
 // config.js
-const password = "TwojeHaslo";
+const password = "KochamJulie123";
