@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prywatna strona</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        padding: 50px;
+    }
+</style>
+</head>
+<body>
+    <h1>Witaj na prywatnej stronie</h1>
+    <p>Wprowadź hasło, aby uzyskać dostęp:</p>
+    <input type="password" id="passwordInput" placeholder="Wprowadź hasło...">
+    <button onclick="checkPassword()">Zatwierdź</button>
+    
+    <script>
+        const allowedPassword = "KochamJulie123"; // Wpisz swoje hasło
+
+        function checkPassword() {
+            const enteredPassword = document.getElementById("passwordInput").value.trim();
+
+            if (enteredPassword === allowedPassword) {
+                window.location.href = "iloveyou.html"; // Przekieruj na stronę z dostępem
+            } else {
+                alert("Nieprawidłowe hasło. Spróbuj ponownie."); // Wyświetl komunikat o nieprawidłowym haśle
+            }
+        }
+    </script>
+</body>
+</html>
