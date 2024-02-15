@@ -3,33 +3,38 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Prywatna strona</title>
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        text-align: center;
-        padding: 50px;
+<title>Użycie hasła w HTML</title>
+<script>
+    function loadConfig() {
+        var script = document.createElement('script');
+        script.src = 'config.js';
+        script.onload = function() {
+            var password = config.password;
+            console.log('Hasło z pliku konfiguracyjnego:', password);
+
+        };
+        document.head.appendChild(script);
     }
-</style>
+
+    // Funkcja sprawdzająca hasło po kliknięciu przycisku
+    function checkPassword() {
+        var enteredPassword = document.getElementById('passwordInput').value;
+        var password = config.password;
+        
+        if (enteredPassword === password) {
+            console.log('Hasło poprawne. Użytkownik autoryzowany.');
+            window.location.href = 'iloveyou.html';
+        } else {
+            console.log('Nieprawidłowe hasło. Użytkownik nieautoryzowany.');
+        }
+    }
+
+    window.onload = loadConfig;
+</script>
 </head>
 <body>
-    <h1>Witaj na prywatnej stronie</h1>
-    <p>Wprowadź hasło, aby uzyskać dostęp:</p>
+    <h1>Proszę podać hasło</h1>
     <input type="password" id="passwordInput" placeholder="Wprowadź hasło...">
     <button onclick="checkPassword()">Zatwierdź</button>
-    
-    <script>
-        const allowedPassword = "KochamJulie123"; // Wpisz swoje hasło
-
-        function checkPassword() {
-            const enteredPassword = document.getElementById("passwordInput").value.trim();
-
-            if (enteredPassword === allowedPassword) {
-                window.location.href = "iloveyou.html"; // Przekieruj na stronę z dostępem
-            } else {
-                alert("Nieprawidłowe hasło. Spróbuj ponownie."); // Wyświetl komunikat o nieprawidłowym haśle
-            }
-        }
-    </script>
 </body>
 </html>
